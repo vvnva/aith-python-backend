@@ -1,9 +1,10 @@
 from dataclasses import dataclass, field
 from uuid import uuid4
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI()
-
+Instrumentator().instrument(app).expose(app)
 
 @dataclass(slots=True)
 class ChatRoom:
