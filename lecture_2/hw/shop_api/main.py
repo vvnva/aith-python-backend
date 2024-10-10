@@ -2,9 +2,12 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import JSONResponse
 from typing import Optional, Dict, Any
 from http import HTTPStatus
-from lecture_2.hw.shop_api.models import Item, Cart, CartItem, ItemPost
+from .models import Item, Cart, CartItem, ItemPost
+from prometheus_fastapi_instrumentator import Instrumentator
+
 
 app = FastAPI(title="Shop API")
+Instrumentator().instrument(app).expose(app)
 
 items: Dict[int, Item] = {}
 carts: Dict[int, Cart] = {}

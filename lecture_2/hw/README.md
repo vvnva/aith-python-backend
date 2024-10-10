@@ -1,4 +1,4 @@
-# ДЗ
+# ДЗ 2
 
 ```bash
 uvicorn lecture_2.hw.shop_api.websocket:app --host 127.0.0.1 --port 8001 --reload
@@ -10,6 +10,16 @@ npm install -g wscat
 ```bash
 wscat -c ws://127.0.0.1:8001/chat/room1
 ```
+# ДЗ 3
+
+```bash
+docker compose -f lecture_2/hw/docker-compose.yml up -d
+```
+Чтобы была активность
+```bash
+python lecture_2/hw/run_shop_api.py
+```
+
 
 ## Задание - REST API (3 балла)
 
